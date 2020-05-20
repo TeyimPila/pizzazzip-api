@@ -12,4 +12,9 @@ class Product extends Model
     {
         return $this->hasMany(ProductOption::class);
     }
+
+    public function ingredients()
+    {
+        return $this->hasMany(Ingredient::class);
+    }
 }

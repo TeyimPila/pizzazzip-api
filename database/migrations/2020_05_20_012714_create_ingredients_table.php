@@ -16,11 +16,11 @@ class CreateIngredientsTable extends Migration
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('pizza_id');
+            $table->unsignedBigInteger('product_id');
             $table->text('description')->nullable(true);;
             $table->timestamps();
 
-            $table->foreign('pizza_id')->references('id')->on('pizzas');
+            $table->foreign('product_id')->references('id')->on('products');
 
         });
     }
