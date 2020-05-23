@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingredient extends Model
 {
-    protected $fillable = ['name', 'pizza_id', 'description'];
+    protected $fillable = ['name', 'product_id', 'description'];
 
-    public function pizza()
+    public function product()
     {
-        return $this->belongsTo(Pizza::class);
+        return $this->belongsTo(Product::class);
     }
 }
