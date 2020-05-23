@@ -16,14 +16,12 @@ class OrderItemResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'             => $this->id,
-            'product_option' => new ProductOptionResource($this->product_option),
-            'quantity'       => $this->quantity,
-            'parent'         => new self($this->parent), //TODO: make this optional
-            'description'    => $this->description,
-            'created_at'     => (string)$this->created_at,
-            'updated_at'     => (string)$this->updated_at,
-
+            'id'          => $this->id,
+            'quantity'    => $this->quantity,
+            'toppings'    => self::collection($this->toppings),
+            'description' => $this->description,
+            'created_at'  => (string)$this->created_at,
+            'updated_at'  => (string)$this->updated_at,
         ];
     }
 }

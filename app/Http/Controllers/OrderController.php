@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
+use App\Services\OrderService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -11,12 +12,19 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class OrderController extends Controller
 {
+    private $orderService;
+
+    public function __construct(OrderService $orderService)
+    {
+        $this->orderService = $orderService;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
         return OrderResource::collection(Order::with(['orders'])->paginate(5));
     }
@@ -28,9 +36,9 @@ class OrderController extends Controller
      *
      * @return OrderResource
      */
-    public function store(Request $request)
+    public function store(Request $request): OrderResource
     {
-        $order = Order::create($request->all());
+        $order = $this->orderService->create($request->all());
 
         return new OrderResource($order);
     }
@@ -51,7 +59,7 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Order $order
+     * @param Order   $order
      *
      * @return OrderResource
      */

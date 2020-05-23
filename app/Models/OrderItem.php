@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrderItem extends Model
 {
     protected $fillable = [
-        'product_option_id',
+        'product_id',
         'order_id',
         'parent_id',
         'quantity',
@@ -18,14 +18,14 @@ class OrderItem extends Model
         return $this->belongsTo(Order::class);
     }
 
-    public function productOption()
+    public function product()
     {
-        return $this->belongsTo(ProductOption::class);
+        return $this->belongsTo(Product::class);
     }
 
     public function toppings()
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class, 'parent_id', 'id');
     }
 
     public function parent()
