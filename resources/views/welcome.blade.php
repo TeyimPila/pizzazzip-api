@@ -68,7 +68,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    pizzAzzip
+                   Welcome to pizzAzzip
                 </div>
 
                 <div class="links">
