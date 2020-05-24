@@ -68,7 +68,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    PizzAzzip
+                    pizzAzzip
                 </div>
 
                 <div class="links">
