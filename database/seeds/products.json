@@ -1,0 +1,291 @@
+[
+    {
+        "type": "topping",
+        "name": "Pepperoni",
+        "description": "Pepperoni",
+        "image": "https://foodcombo.com/cache/images/foods-combo-maker/pepperoni.jpg",
+        "unit_price": 0.25
+    },
+    {
+        "type": "topping",
+        "name": "Mushrooms",
+        "description": "Mushrooms",
+        "image": "https://www.mr-fruity.co.uk/wp-content/uploads/2019/04/202209011_2_640x640.jpg",
+        "unit_price": 0.75
+    },
+    {
+        "type": "topping",
+        "name": "Onions",
+        "description": "Onions",
+        "image": "https://www.markon.com/sites/default/files/styles/large/public/pi_photos/Onions_Sliced_Red_Hero.jpg",
+        "unit_price": 0.25
+    },
+    {
+        "type": "topping",
+        "name": "Sausage",
+        "description": "Sausage",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/71kSPTuZB0L._SX522_.jpg",
+        "unit_price": 1.0
+    },
+    {
+        "type": "topping",
+        "name": "Bacon",
+        "description": "Bacon",
+        "image": "https://www.verdesprados.es/91-large_default/bacon-extra-ecologico.jpg",
+        "unit_price": 1.0
+    },
+    {
+        "type": "topping",
+        "name": "Extra cheese",
+        "description": "Extra cheese",
+        "image": "https://sc02.alicdn.com/kf/UTB8RLq5xqrFXKJk43Ov761bnpXap.png",
+        "unit_price": 1.5
+    },
+    {
+        "type": "topping",
+        "name": "Black olives",
+        "description": "Black olives",
+        "image": "https://image.freepik.com/free-photo/black-olives-isolated-white-background_88281-73.jpg",
+        "unit_price": 0.5
+    },
+    {
+        "type": "topping",
+        "name": "Green peppers",
+        "description": "Green peppers",
+        "image": "https://assets.sainsburys-groceries.co.uk/gol/1236620/1/640x640.jpg",
+        "unit_price": 0.25
+    },
+    {
+        "type": "topping",
+        "name": "Pineapple",
+        "description": "Pineapple",
+        "image": "https://5.imimg.com/data5/WT/GN/ZH/SELLER-3722283/pineapple-500x500.jpg",
+        "unit_price": 2
+    },
+    {
+        "type": "topping",
+        "name": "Spinach",
+        "description": "Spinach",
+        "image": "https://cdn.mos.cms.futurecdn.net/atyrpYQoxdoTzmEgu8HMWE-320-80.jpg",
+        "unit_price": 2.5
+    },
+    {
+        "type": "drink",
+        "name": "Dr Pepper Vanilla Float",
+        "description": "Dr Pepper Vanilla Float - 12fl.oz (355ml) [LIMITED EDITION]",
+        "image": "https://americanfizz.co.uk/image/cache/catalog/american-soda/dr%20pepper/dr-pepper-12oz-800x800.png",
+        "unit_price": 2
+    },
+    {
+        "type": "drink",
+        "name": "Mountain Dew",
+        "description": "Mountain Dew cans 24 x 0,33 Liter",
+        "image": "https://www.fivestartrading-holland.eu/images/product_images/original_images/mountain%20dew%20330.jpg",
+        "unit_price": 1.5
+    },
+    {
+        "type": "drink",
+        "name": "Orange Juice",
+        "description": "Cold freshly extracted organic orange juice",
+        "image": "https://http2.mlstatic.com/essnciasilver-sumo-de-laranja-380195-D_NQ_NP_794122-MLB25959458778_092017-F.jpg",
+        "unit_price": 10.5
+    },
+    {
+        "type": "drink",
+        "name": "Goldberg Japanese Yuzu Tonic Water",
+        "description": "Goldberg Japanese Yuzu Tonic Water 200 ml",
+        "image": "https://www.bottlerocket.de/media/image/46/53/2e/Goldberg_Japanese_Yuzu_Tonic_Water_200ml_V_1024x1024.jpg",
+        "unit_price": 7.5
+    },
+    {
+        "type": "drink",
+        "name": "Fresh Fruit Cocktail",
+        "description": "Cocktail of Mango, Orange and Banana",
+        "image": "https://www.dinneratthezoo.com/wp-content/uploads/2016/05/tropical-fruit-salad-2-1-500x500.jpg",
+        "unit_price": 15.5
+    },
+    {
+        "type": "pizza",
+        "name": "Buffalo Chicken Pizza",
+        "description": "Steamy hot and tasty Buffalo Chicken Pizza",
+        "image": "https://food-fanatic-res.cloudinary.com/iu/s--kJn_BlF5--/c_thumb,f_auto,g_auto,h_1200,q_auto,w_1200/v1534480099/buffalo-chicken-puff-pastry-pizza-photo",
+        "unit_price": 10.5,
+        "ingredients": [
+            {
+                "name": "Dough"
+            },
+            {
+                "name": "Chicken breast"
+            },
+            {
+                "name": "Buffalo sauce"
+            },
+            {
+                "name": "Blue cheese"
+            }
+        ]
+    },
+    {
+        "type": "pizza",
+        "name": "Pepperoni Pizza",
+        "description": "Steamy hot and tasty Pepperoni Pizza",
+        "image": "https://tastesbetterfromscratch.com/wp-content/uploads/2019/03/Pepperoni-Pizza-10-500x500.jpg",
+        "unit_price": 15.5,
+        "ingredients": [
+            {
+                "name": "pepperoni"
+            },
+            {
+                "name": "Chicken breast"
+            }
+        ]
+    },
+    {
+        "type": "pizza",
+        "name": "BBQ Chicken Pizza",
+        "description": "BBQ Chicken Pizza",
+        "image": "https://pinchofyum.com/wp-content/uploads/bbq-chicken-pizza.jpg",
+        "unit_price": 20,
+        "ingredients": [
+            {
+                "name": "pepperoni"
+            },
+            {
+                "name": "Chicken breast"
+            }
+        ]
+    },
+    {
+        "type": "pizza",
+        "name": "Double cheese pizza",
+        "description": "Double cheese pizza",
+        "image": "https://img.grouponcdn.com/deal/2JtNGwxgAFUrGJ22tFxdLtCFpMrW/2J-2048x1229/v1/sc600x600.jpg",
+        "unit_price": 20,
+        "ingredients": [
+            {
+                "name": "cheese"
+            },
+            {
+                "name": "sausage"
+            },
+            {
+                "name": "tomatoes"
+            },
+            {
+                "name": "mushrooms"
+            }
+        ]
+    },
+    {
+        "type": "pizza",
+        "name": "Hawaiian Pizza/Pineapple",
+        "description": "Hawaiian Pizza/Pineapple",
+        "image": "https://www.superhealthykids.com/wp-content/uploads/2012/12/Personal-Hawaiian-Pizza-500x500.jpg",
+        "unit_price": 25,
+        "ingredients": [
+            {
+                "name": "cheese"
+            },
+            {
+                "name": "sausage"
+            },
+            {
+                "name": "tomatoes"
+            },
+            {
+                "name": "mushrooms"
+            }
+        ]
+    },
+    {
+        "type": "pizza",
+        "name": "Multigrain Pizza",
+        "description": "Hawaiian Pizza/Pineapple",
+        "image": "https://2blissofbaking.com/wp-content/uploads/2017/02/multigrain-pizza.jpg",
+        "unit_price": 25,
+        "ingredients": [
+            {
+                "name": "cheese"
+            },
+            {
+                "name": "sausage"
+            },
+            {
+                "name": "tomatoes"
+            },
+            {
+                "name": "mushrooms"
+            }
+        ]
+    },
+    {
+        "type": "pizza",
+        "name": "Wholegrain Pizza",
+        "description": "Hawaiian Pizza/Pineapple",
+        "image": "https://i2.wp.com/www.vegrecipesofindia.com/wp-content/uploads/2015/01/wheat-pizza-recipe-1-500x500.jpg",
+        "unit_price": 15.5,
+        "ingredients": [
+            {
+                "name": "mozzarella cheese"
+            },
+            {
+                "name": "sausage"
+            },
+            {
+                "name": "tomato sauce"
+            },
+            {
+                "name": "pepperoni"
+            }
+        ]
+    },
+    {
+        "type": "pizza",
+        "name": "Scone Pizza",
+        "description": "Hawaiian Pizza/Pineapple",
+        "image": "https://s3-eu-west-2.amazonaws.com/letsgetcooking.org.uk/sites/5/2015/08/LGC074.jpg",
+        "unit_price": 9.5,
+        "ingredients": [
+            {
+                "name": "chedar cheese"
+            },
+            {
+                "name": "sausage"
+            },
+            {
+                "name": "tomatoes"
+            },
+            {
+                "name": "flour"
+            },
+            {
+                "name": "margarine"
+            },
+            {
+                "name": "milk"
+            }
+        ]
+    },
+    {
+        "type": "pizza",
+        "name": "Vegetarian Pizza",
+        "description": "Hawaiian Pizza/Pineapple",
+        "image": "https://italianexpressonline.com/wp-content/uploads/2019/05/vegan-pizza_no-cheese.jpg",
+        "unit_price": 7.25,
+        "ingredients": [
+            {
+                "name": "spinach"
+            },
+            {
+                "name": "onions"
+            },
+            {
+                "name": "tomatoes"
+            },
+            {
+                "name": "mushrooms"
+            }
+        ]
+    }
+
+]

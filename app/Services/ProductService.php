@@ -6,11 +6,10 @@ namespace App\Services;
 
 use App\Models\Ingredient;
 use App\Models\Product;
-use Exception;
 
 class ProductService
 {
-    /** @var IngredientService  */
+    /** @var IngredientService */
     private $ingredientService;
 
     function __construct(
@@ -22,7 +21,9 @@ class ProductService
     function create(array $payload): Product
     {
         try {
-            $product = Product::create($payload);
+            $productAttributes = array_intersect_key($payload, array_flip(['name', 'unit_price', 'type', 'image', 'description']));
+
+            $product = Product::create($productAttributes);
 
             if ($product->id && array_key_exists('ingredients', $payload)) {
                 foreach ($payload['ingredients'] as $ingredient) {
@@ -48,7 +49,8 @@ class ProductService
      */
     public function update(Product $product, array $attributes): Product
     {
-       $product->update($attributes);
-       return $product;
+        $product->update($attributes);
+
+        return $product;
     }
 }
