@@ -12,17 +12,11 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 class UserController extends Controller
 {
     /**
-<<<<<<< HEAD
-     * @inheritDoc
-     */
-    public function index(): AnonymousResourceCollection
-=======
      * Display a listing of the resource.
      *
      * @return AnonymousResourceCollection
      */
     public function index()
->>>>>>> define-routes
     {
         return UserResource::collection(User::with(['orders'])->paginate(5));
     }
@@ -34,11 +28,7 @@ class UserController extends Controller
      *
      * @return UserResource
      */
-<<<<<<< HEAD
     public function store(Request $request): UserResource
-=======
-    public function store(Request $request)
->>>>>>> define-routes
     {
         $user = User::create($request->all());
 
