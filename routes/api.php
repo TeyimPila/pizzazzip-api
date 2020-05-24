@@ -22,7 +22,6 @@ Route::apiResource('users', 'UserController');
 Route::apiResource('orders', 'OrderController');
 Route::apiResource('products', 'ProductController');
 
-
 Route::get('products/{product}/ingredients', 'ProductIngredientController@index');
 Route::post('products/{product}/ingredients', 'ProductIngredientController@store');
 Route::put('products/{product}/ingredients/{ingredient}', 'ProductIngredientController@update');
