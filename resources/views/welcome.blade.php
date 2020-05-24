@@ -72,7 +72,7 @@
             </div>
 
             <div class="links">
-                <a href="#">API Documentation</a>
+                <a href="https://documenter.getpostman.com/view/10717842/Szt8eVsN?version=latest#3316afab-4476-450a-a07f-8bf3d2631590">API Documentation</a>
                 <a href="https://pizzazzip.herokuapp.com">Frontend</a>
                 <a href="https://github.com/TeyimPila/pizzazzip-web">Frontend Github Repo</a>
                 <a href="https://github.com/TeyimPila/pizzazzip-api">Backend Github Repo</a>
