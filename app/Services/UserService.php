@@ -18,7 +18,7 @@ class UserService
      */
     public function create(array $user): User
     {
-        $existingUser = User::where('email', $user['email'])->first();
+        $existingUser = User::where('email', $user['email'])->orWhere('phone', $user['phone'])->first();
 
         if ($existingUser) {
             return $existingUser;
@@ -38,6 +38,7 @@ class UserService
     public function update(User $user, array $only): User
     {
         $user->update($only);
+
         return $user;
     }
 

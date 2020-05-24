@@ -24,7 +24,7 @@ class OrderResource extends JsonResource
             'number'           => $this->number,
             'status'           => $this->status,
             'order_items'      => OrderItemResource::collection($this->orderItems),
-            'delivery_address' => $this->deliverAddress,
+            'delivery_address' => $this->address,
             'created_at'       => (string)$this->created_at,
             'updated_at'       => (string)$this->updated_at,
         ];
