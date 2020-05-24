@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class IngredientResource extends JsonResource
@@ -9,7 +10,7 @@ class IngredientResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
      * @return array
      */
@@ -18,7 +19,6 @@ class IngredientResource extends JsonResource
         return [
             'id'          => $this->id,
             'name'        => $this->name,
-            // 'product'     => new ProductResource($this->product),
             'description' => $this->description,
             'created_at'  => (string)$this->created_at,
             'updated_at'  => (string)$this->updated_at,

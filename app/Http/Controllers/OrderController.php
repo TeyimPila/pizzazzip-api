@@ -26,7 +26,7 @@ class OrderController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        return OrderResource::collection(Order::with(['orders'])->paginate(5));
+        return OrderResource::collection(Order::with([])->paginate(5));
     }
 
     /**
@@ -50,7 +50,7 @@ class OrderController extends Controller
      *
      * @return OrderResource
      */
-    public function show(Order $order)
+    public function show(Order $order): OrderResource
     {
         return new OrderResource($order);
     }
@@ -63,9 +63,9 @@ class OrderController extends Controller
      *
      * @return OrderResource
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Order $order): OrderResource
     {
-        $order->update($request->only(['name', 'type', 'description', 'image']));
+        $order = $this->orderService->update($order, $request->only(['status', 'note']));
 
         return new OrderResource($order);
     }
@@ -78,7 +78,7 @@ class OrderController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
-    public function destroy(Order $order)
+    public function destroy(Order $order): JsonResponse
     {
         $order->delete();
 

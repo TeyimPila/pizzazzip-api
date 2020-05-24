@@ -9,6 +9,14 @@ use App\Models\User;
 
 class AddressService
 {
+    /**
+     * Creates a new user address for the given user.
+     *
+     * @param User  $user
+     * @param array $address
+     *
+     * @return Address
+     */
     public function create(User $user, array $address): Address
     {
         return Address::create(

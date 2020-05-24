@@ -38,6 +38,7 @@ class ProductController extends Controller
     public function store(Request $request): JsonResource
     {
         $product = $this->productService->create($request->all());
+
         return new ProductResource($product);
     }
 
@@ -48,7 +49,7 @@ class ProductController extends Controller
      *
      * @return ProductResource
      */
-    public function show(Product $product)
+    public function show(Product $product): ProductResource
     {
         return new ProductResource($product);
     }
@@ -61,9 +62,9 @@ class ProductController extends Controller
      *
      * @return ProductResource
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product): ProductResource
     {
-        $product->update($request->only(['name', 'type', 'description', 'image']));
+        $product = $this->productService->update($product, $request->only(['name', 'type', 'description', 'image']));
 
         return new ProductResource($product);
     }
@@ -76,7 +77,7 @@ class ProductController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product): JsonResponse
     {
         $product->delete();
 

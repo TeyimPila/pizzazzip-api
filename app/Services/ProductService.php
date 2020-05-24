@@ -10,6 +10,7 @@ use Exception;
 
 class ProductService
 {
+    /** @var IngredientService  */
     private $ingredientService;
 
     function __construct(
@@ -35,5 +36,19 @@ class ProductService
         }
 
         return null;
+    }
+
+    /**
+     * Updates the given product with the given attributes.
+     *
+     * @param Product $product
+     * @param array   $attributes
+     *
+     * @return Product
+     */
+    public function update(Product $product, array $attributes): Product
+    {
+       $product->update($attributes);
+       return $product;
     }
 }

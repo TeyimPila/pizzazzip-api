@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class OrderItem extends Model
 {
@@ -23,6 +24,12 @@ class OrderItem extends Model
         return $this->belongsTo(Product::class);
     }
 
+    /**
+     * Defines a self many-to-many relationship
+     * between an order item and its toppings.
+     *
+     * @return HasMany
+     */
     public function toppings()
     {
         return $this->hasMany(OrderItem::class, 'parent_id', 'id');
