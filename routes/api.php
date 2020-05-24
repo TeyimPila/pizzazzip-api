@@ -22,20 +22,15 @@ Route::apiResource('users', 'UserController');
 Route::apiResource('orders', 'OrderController');
 Route::apiResource('products', 'ProductController');
 
-Route::get('products/{product}/options', 'ProductOptionController@index');
-Route::post('products/{product}/options', 'ProductOptionController@store');
-Route::put('products/{product}/options/{option}', 'ProductOptionController@update');
-Route::delete('products/{product}/options/{option}', 'ProductOptionController@destroy');
-
 Route::get('products/{product}/ingredients', 'ProductIngredientController@index');
 Route::post('products/{product}/ingredients', 'ProductIngredientController@store');
 Route::put('products/{product}/ingredients/{ingredient}', 'ProductIngredientController@update');
 Route::delete('products/{product}/ingredients/{ingredient}', 'ProductIngredientController@destroy');
 
-Route::get('orders/{order}/items', 'OrderItemController@index');
-Route::post('orders/{order}/items', 'OrderItemController@store');
-Route::put('orders/{order}/items/{item}', 'OrderItemController@update');
-Route::delete('orders/{order}/items/{item}', 'OrderItemController@destroy');
+Route::get('orders/{order}/orderItems', 'OrderItemController@index');
+Route::post('orders/{order}/orderItems', 'OrderItemController@store');
+Route::put('orders/{order}/orderItems/{item}', 'OrderItemController@update');
+Route::delete('orders/{order}/orderItems/{item}', 'OrderItemController@destroy');
 
 Route::get('users/{user}/addresses', 'OrderItemController@index');
 Route::post('users/{user}/addresses', 'OrderItemController@store');

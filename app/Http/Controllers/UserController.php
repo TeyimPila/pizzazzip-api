@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Services\UserService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -11,6 +12,13 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class UserController extends Controller
 {
+    private $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +38,7 @@ class UserController extends Controller
      */
     public function store(Request $request): UserResource
     {
-        $user = User::create($request->all());
+        $user = $this->userService->create($request->all());
 
         return new UserResource($user);
     }
@@ -42,7 +50,7 @@ class UserController extends Controller
      *
      * @return UserResource
      */
-    public function show(User $user)
+    public function show(User $user): UserResource
     {
         return new UserResource($user);
     }
@@ -55,10 +63,9 @@ class UserController extends Controller
      *
      * @return UserResource
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user): UserResource
     {
-        $user->update($request->only(['name', 'email', 'phone']));
-
+        $user = $this->userService->update($user, $request->only(['email', 'phone', 'first_name', 'last_name']));
         return new UserResource($user);
     }
 
@@ -70,7 +77,7 @@ class UserController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
-    public function destroy(User $user)
+    public function destroy(User $user): JsonResponse
     {
         $user->delete();
 

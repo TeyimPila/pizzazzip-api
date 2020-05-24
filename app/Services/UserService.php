@@ -9,6 +9,13 @@ use App\Models\User;
 class UserService
 {
 
+    /**
+     * Creates a new user or returns user if they already exit.
+     *
+     * @param array $user
+     *
+     * @return User
+     */
     public function create(array $user): User
     {
         $existingUser = User::where('email', $user['email'])->first();
@@ -17,14 +24,21 @@ class UserService
             return $existingUser;
         }
 
-        return User::create(
-            [
-                'last_name'  => $user['lastName'],
-                'email'      => $user['email'],
-                'phone'      => $user['phone'],
-                'first_name' => $user['firstName'],
-            ]
-        );
+        return User::create($user);
+    }
+
+    /**
+     * Updates the given attributes of the given user.
+     *
+     * @param User  $user
+     * @param array $only
+     *
+     * @return User
+     */
+    public function update(User $user, array $only): User
+    {
+        $user->update($only);
+        return $user;
     }
 
 }

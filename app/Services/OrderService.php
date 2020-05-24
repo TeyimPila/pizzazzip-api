@@ -8,8 +8,14 @@ use App\Models\Order;
 
 class OrderService
 {
+
+    /** @var UserService  */
     private $userService;
+
+    /** @var AddressService  */
     private $addressService;
+
+    /** @var OrderItemService  */
     private $orderItemService;
 
     function __construct(
@@ -22,6 +28,13 @@ class OrderService
         $this->orderItemService = $orderItemService;
     }
 
+    /**
+     * Creates a new order.
+     *
+     * @param array $payload
+     *
+     * @return Order
+     */
     public function create(array $payload): Order
     {
         $user    = $this->userService->create($payload['userDetails']);
@@ -39,6 +52,20 @@ class OrderService
 
         $this->orderItemService->createItems($order, $payload['orderItems']);
 
+        return $order;
+    }
+
+    /**
+     * Updates the values of the given attributes in the given order;
+     *
+     * @param Order $order
+     * @param array $attributes
+     *
+     * @return Order
+     */
+    public function update(Order $order, array $attributes): Order
+    {
+        $order->update($attributes);
         return $order;
     }
 
