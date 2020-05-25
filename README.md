@@ -64,7 +64,7 @@ To implement this task I needed to  model and store information about the follow
  - Users
  - Addresses
  - Orders
- - Order Items (Notice from the diagram that this entity has a self one to many relationship. This represents a Pizza and its toppings)
+ - Order Items (Notice from the diagram that this entity has a self, one-to-many relationship. This represents a Pizza and its toppings)
 
  The attributes of these entities and relationships to each other can be seen in the following entity relationship diagram (ERD)
 
