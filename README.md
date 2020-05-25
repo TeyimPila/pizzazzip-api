@@ -1,79 +1,110 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# PizzAzziP 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
+# Introduction
+This document outlines the technical and non technical requirements and specifications and considerations made in the implementation
+ of a simple REST API that serves a ReactJS frontend (client). This is the backend for a pizza delivery online store. 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This document also outlines the development stack, implementation consideration, assumptions made, design consideration and reasons behind the decisions and assumptions made.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Running the application
+To run the application, make sure you already have php and composer installed. Then:
+- Clone this repository (a Laravel application) 
+- Install the dependencies
+- Create a MySQL database
+- create a `.env` file and enter your database credentials (use the example `.env.example` file)
+- Run your migrations using `php artisan migrate`
+- Run the seeder (`php artisan db:seed`) to populate the database with some sample data I created
+- Finally, start the application with `php artisan serve`. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+If all goes well, the application should be up and running.
 
-## Learning Laravel
+# Design and implementation Considerations
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Assumptions
+In implementing this REST API, the following assumptions were made:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Assumptions are made about the load that the system would need to handle. In a
+  larger, more complex production-grade system, I would use technologies such as
+  load balancing, and caching to improve performance and resilience under high
+  loads
+- This implementation does not focus a lot on authentication. Thus the endpoints are not secured
+- Since this is a REST API service, it is stateless. This means no session is
+  maintained and every request is expected to be self-contained.
+- I also assume that the data to be stored is fairly small and can easily be queried at
+  significantly higher speeds, thereby eliminating the need for large-scale data
+  modeling techniques such as sharding (horizontal partitioning).
+- Users won't log in to maintain their orders. Each order for pizzas is placed with a new address and user contact details, which are stored each time, unless if the contact details contain a existing email address or phone number.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Technology Stack
+- This is implemented using Laravel 7.0 and PHP 7.2.25, connecting to a MySQL database.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+##System Architecture
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Design Architecture
+ This service is implemented following the `Model View Controller (MVC)` design
+ pattern, depicted in the diagram below. MVC is an architectural pattern commonly used
+ for developing software systems by dividing the application into three
+ parts or layers. This is done to separate internal representations of data as stored on the
+ database as `Model`, from the ways information is processed following business
+ requirements in the `controller` and `Services` and from how information is presented to and accepted
+ from the user in the `views`. The MVC design pattern decouples these major components
+ allowing for code reuse and parallel development.
+ 
+ ![MVC Design Architecture Diagram](./docs/Architecture-Diagram.png)
 
-## Code of Conduct
+### Relational Database Model
+To implement this task I needed to  model and store information about the following entities
+ - Products
+ - Product Ingredients
+ - Users
+ - Addresses
+ - Orders
+ - Order Items (Notice from the diagram that this entity has a self one to many relationship. This represents a Pizza and its toppings)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+ The attributes of these entities and relationships to each other can be seen in the following entity relationship diagram (ERD)
 
-## Security Vulnerabilities
+ ![ERD for PizzAzziP](./docs/Pizzazzip-ERD.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## API Design and documentation
+### Data Representation
+The format of data used in communication with the API is JSON.
+I adopt a standard format for representing all response data sent from the service.
+The responses objects will be made of 3 main attributes:
+1. A status: An HTTP status code for the response
+2. A message: A text describing the response
+3. Data: An object containing the body of the response. This further contains
+sub objects or lists, depending on the nature of the data being returned.
+Sample response data:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+{
+    "status": "2xx - 5xx",
+    "message": "A response message"
+    "data": {
+        ...
+    }
+}
+```
+### API documentation 
+`(Many more Endpoints were implemented but I only document those that were used in the frontend)`
+
+A more detailed documentation of each endpoint can be found [here](https://documenter.getpostman.com/view/10717842/Szt8eVsN).
+This section only provides a high level overview of the endpoints provided by the
+service. 
+
+<table>
+    <thead>
+        <tr>
+            <td>METHOD</td>
+            <td>LABEL</td>
+            <td>URI</td>
+            <td>DESCRIPTION</td>
+        </tr>
+    </thead>
+    
+</table>
+
