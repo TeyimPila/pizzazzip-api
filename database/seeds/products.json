@@ -108,7 +108,7 @@
         "type": "pizza",
         "name": "Buffalo Chicken Pizza",
         "description": "Steamy hot and tasty Buffalo Chicken Pizza",
-        "image": "https://food-fanatic-res.cloudinary.com/iu/s--kJn_BlF5--/c_thumb,f_auto,g_auto,h_1200,q_auto,w_1200/v1534480099/buffalo-chicken-puff-pastry-pizza-photo",
+        "image": "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/216054.jpg",
         "unit_price": 10.5,
         "ingredients": [
             {
